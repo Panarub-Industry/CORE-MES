@@ -31,7 +31,7 @@ public class X_SAP_ProductClass extends PO implements I_SAP_ProductClass, I_Pers
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_ProductClass (Properties ctx, int SAP_ProductClass_ID, String trxName)

@@ -31,7 +31,7 @@ public class X_SAP_Operation extends PO implements I_SAP_Operation, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_Operation (Properties ctx, int SAP_Operation_ID, String trxName)

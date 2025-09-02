@@ -27,7 +27,6 @@ import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.AdempiereSystemError;
 import org.compiere.util.DB;
-import org.compiere.util.Trx;
 import org.adempiere.exceptions.DBException;
 
 import id.co.bintangindokarya.assembling.model.MMes_Barcode;
@@ -72,8 +71,7 @@ public class ProcessGenerateBarcode extends SvrProcess
 			return "";
 		// search MES_Barcode_ID
 		MMes_Barcode barcode =new MMes_Barcode(getCtx(), p_MES_Barcode_ID, get_TrxName());
-		Integer SAP_ProdOrderMaster_ID = barcode.getSAP_ProdOrderMaster_ID();
-		
+		Integer SAP_ProdOrderMaster_ID = barcode.getSAP_ProdOrderMaster_ID();		
 		MSAP_ProdOrderMaster ProdOrderMaster = new MSAP_ProdOrderMaster(getCtx(), SAP_ProdOrderMaster_ID, get_TrxName());				
 		
 		final String sql = "WITH cte AS ( "
@@ -128,8 +126,7 @@ public class ProcessGenerateBarcode extends SvrProcess
 				String barcodeGenerate = rs.getString("barcode");
 				String sizeFactory = rs.getString("sizefactory");
 				
-				MMes_BarcodeDetail barcodeDetail = new MMes_BarcodeDetail(getCtx(), 0, get_TrxName());
-				
+				MMes_BarcodeDetail barcodeDetail = new MMes_BarcodeDetail(getCtx(), 0, get_TrxName());				
 				barcodeDetail.setMES_Barcode_ID(p_MES_Barcode_ID);
 				barcodeDetail.setOrderNumber(orderNumber);
 				barcodeDetail.setBarcode(barcodeGenerate);
@@ -147,15 +144,17 @@ public class ProcessGenerateBarcode extends SvrProcess
 		// and convert them to unchecked DBException
 		
 		catch (SQLException e)
-		{
+		{			
 			throw new DBException(e, sql);
 		}		
 		// '''ALWAYS''' close your ResultSet in a finally statement
 		finally
-		{
+		{			
 			DB.close(rs, pstmt);
 			rs = null; pstmt = null;
+			return "@OK@";
 		}
+		
 		
 	}	//	doIt
 	

@@ -34,7 +34,7 @@ public class X_SAP_ProdOrder extends PO implements I_SAP_ProdOrder, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_ProdOrder (Properties ctx, int SAP_ProdOrder_ID, String trxName)

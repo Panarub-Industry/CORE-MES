@@ -34,7 +34,7 @@ public class X_SAP_SalesOrder extends PO implements I_SAP_SalesOrder, I_Persiste
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_SalesOrder (Properties ctx, int SAP_SalesOrder_ID, String trxName)

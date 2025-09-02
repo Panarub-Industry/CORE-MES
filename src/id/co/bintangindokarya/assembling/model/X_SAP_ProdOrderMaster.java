@@ -31,7 +31,7 @@ public class X_SAP_ProdOrderMaster extends PO implements I_SAP_ProdOrderMaster, 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_ProdOrderMaster (Properties ctx, int SAP_ProdOrderMaster_ID, String trxName)

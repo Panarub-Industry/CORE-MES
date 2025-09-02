@@ -31,7 +31,7 @@ public class X_SAP_Sloc extends PO implements I_SAP_Sloc, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250828L;
+	private static final long serialVersionUID = 20250901L;
 
     /** Standard Constructor */
     public X_SAP_Sloc (Properties ctx, int SAP_Sloc_ID, String trxName)
