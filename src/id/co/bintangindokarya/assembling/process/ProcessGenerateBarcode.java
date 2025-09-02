@@ -29,9 +29,9 @@ import org.compiere.util.AdempiereSystemError;
 import org.compiere.util.DB;
 import org.adempiere.exceptions.DBException;
 
-import id.co.bintangindokarya.assembling.model.MMes_Barcode;
-import id.co.bintangindokarya.assembling.model.MMes_BarcodeDetail;
-import id.co.bintangindokarya.assembling.model.MSAP_ProdOrderMaster;
+import id.co.bintangindokarya.assembling.model.MMES_Barcode;
+import id.co.bintangindokarya.assembling.model.MMES_BarcodeDetail;
+import id.co.bintangindokarya.erp.model.*;
  
 /**
  *  @author Erick
@@ -70,7 +70,7 @@ public class ProcessGenerateBarcode extends SvrProcess
 		if (p_MES_Barcode_ID == 0)
 			return "";
 		// search MES_Barcode_ID
-		MMes_Barcode barcode =new MMes_Barcode(getCtx(), p_MES_Barcode_ID, get_TrxName());
+		MMES_Barcode barcode =new MMES_Barcode(getCtx(), p_MES_Barcode_ID, get_TrxName());
 		Integer SAP_ProdOrderMaster_ID = barcode.getSAP_ProdOrderMaster_ID();		
 		MSAP_ProdOrderMaster ProdOrderMaster = new MSAP_ProdOrderMaster(getCtx(), SAP_ProdOrderMaster_ID, get_TrxName());				
 		
@@ -126,7 +126,7 @@ public class ProcessGenerateBarcode extends SvrProcess
 				String barcodeGenerate = rs.getString("barcode");
 				String sizeFactory = rs.getString("sizefactory");
 				
-				MMes_BarcodeDetail barcodeDetail = new MMes_BarcodeDetail(getCtx(), 0, get_TrxName());				
+				MMES_BarcodeDetail barcodeDetail = new MMES_BarcodeDetail(getCtx(), 0, get_TrxName());				
 				barcodeDetail.setMES_Barcode_ID(p_MES_Barcode_ID);
 				barcodeDetail.setOrderNumber(orderNumber);
 				barcodeDetail.setBarcode(barcodeGenerate);

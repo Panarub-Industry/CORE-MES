@@ -1,5 +1,6 @@
 package id.co.bintangindokarya.assembling.callout;
 
+import id.co.bintangindokarya.erp.model.*;
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +15,7 @@ import org.compiere.model.GridTab;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
 
-import id.co.bintangindokarya.assembling.model.MSAP_ProdOrderMaster;
-import id.co.bintangindokarya.assembling.model.MSAP_Sloc;
+
 
 @Callout(tableName = "MES_Barcode", columnName = { "SAP_ProdOrderMaster_ID", "POReference", "SAP_Sloc_ID",
 		"MES_BarcodeType_ID" })
