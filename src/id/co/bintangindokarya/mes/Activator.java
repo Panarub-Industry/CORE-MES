@@ -23,7 +23,7 @@
 * - Trek Global Corporation                                           *
 * - Heng Sin Low                                                      *
 **********************************************************************/
-package id.co.bintangindokarya.assembling;
+package id.co.bintangindokarya.mes;
 
 import org.adempiere.base.Core;
 import org.adempiere.plugin.utils.Incremental2PackActivator;
@@ -38,9 +38,9 @@ public class Activator extends Incremental2PackActivator {
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
-		Core.getMappedModelFactory().scan(context, "id.co.bintangindokarya.assembling.model");
-		Core.getMappedProcessFactory().scan(context, "id.co.bintangindokarya.assembling.process");
-		Core.getMappedColumnCalloutFactory().scan(context, "id.co.bintangindokarya.assembling.callout");
+		Core.getMappedModelFactory().scan(context, "id.co.bintangindokarya.mes.model");
+		Core.getMappedProcessFactory().scan(context, "id.co.bintangindokarya.mes.process");
+		Core.getMappedColumnCalloutFactory().scan(context, "id.co.bintangindokarya.mes.callout");
 
 		super.start(context);
 	}

@@ -22,7 +22,7 @@
  * Contributors:                                                       *
  * - hengsin                         								   *
  **********************************************************************/
-package id.co.bintangindokarya.assembling;
+package id.co.bintangindokarya.mes;
 
 import org.adempiere.base.AnnotationBasedEventManager;
 import org.osgi.service.component.annotations.Component;
@@ -41,7 +41,7 @@ public class EventManager extends AnnotationBasedEventManager {
 
 	@Override
 	public String[] getPackages() {
-		return new String[] {"id.co.bintangindokarya.assembling.event"};
+		return new String[] {"id.co.bintangindokarya.mes.event"};
 	}
 
 }
