@@ -1,4 +1,4 @@
-package id.co.bintangindokarya.assembling.model;
+package id.co.bintangindokarya.mes.model;
 
 import java.sql.ResultSet;
 import java.util.Properties;

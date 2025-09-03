@@ -15,7 +15,7 @@
  * or via info@compiere.org or http://www.compiere.org/license.html           *
  *****************************************************************************/
 /** Generated Model - DO NOT CHANGE */
-package id.co.bintangindokarya.assembling.model;
+package id.co.bintangindokarya.mes.model;
 
 import java.sql.ResultSet;
 import java.util.Properties;
