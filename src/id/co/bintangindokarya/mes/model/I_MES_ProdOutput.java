@@ -73,15 +73,6 @@ public interface I_MES_ProdOutput
 	/** Get Article	  */
 	public String getArticle();
 
-    /** Column name Barcode */
-    public static final String COLUMNNAME_Barcode = "Barcode";
-
-	/** Set Barcode	  */
-	public void setBarcode (String Barcode);
-
-	/** Get Barcode	  */
-	public String getBarcode();
-
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
 
@@ -97,6 +88,45 @@ public interface I_MES_ProdOutput
 	  * User who created this records
 	  */
 	public int getCreatedBy();
+
+    /** Column name DocAction */
+    public static final String COLUMNNAME_DocAction = "DocAction";
+
+	/** Set Document Action.
+	  * The targeted status of the document
+	  */
+	public void setDocAction (String DocAction);
+
+	/** Get Document Action.
+	  * The targeted status of the document
+	  */
+	public String getDocAction();
+
+    /** Column name DocStatus */
+    public static final String COLUMNNAME_DocStatus = "DocStatus";
+
+	/** Set Document Status.
+	  * The current status of the document
+	  */
+	public void setDocStatus (String DocStatus);
+
+	/** Get Document Status.
+	  * The current status of the document
+	  */
+	public String getDocStatus();
+
+    /** Column name DocumentNo */
+    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+
+	/** Set Document No.
+	  * Document sequence number of the document
+	  */
+	public void setDocumentNo (String DocumentNo);
+
+	/** Get Document No.
+	  * Document sequence number of the document
+	  */
+	public String getDocumentNo();
 
     /** Column name IsActive */
     public static final String COLUMNNAME_IsActive = "IsActive";
@@ -200,36 +230,40 @@ public interface I_MES_ProdOutput
 	  */
 	public String getPOReference();
 
-    /** Column name PostingRemark */
-    public static final String COLUMNNAME_PostingRemark = "PostingRemark";
+    /** Column name Processed */
+    public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Set Posting Remark	  */
-	public void setPostingRemark (String PostingRemark);
-
-	/** Get Posting Remark	  */
-	public String getPostingRemark();
-
-    /** Column name PostingStatus */
-    public static final String COLUMNNAME_PostingStatus = "PostingStatus";
-
-	/** Set Posting Status	  */
-	public void setPostingStatus (boolean PostingStatus);
-
-	/** Get Posting Status	  */
-	public boolean isPostingStatus();
-
-    /** Column name QtyEntered */
-    public static final String COLUMNNAME_QtyEntered = "QtyEntered";
-
-	/** Set Quantity.
-	  * The Quantity Entered is based on the selected UoM
+	/** Set Processed.
+	  * The document has been processed
 	  */
-	public void setQtyEntered (BigDecimal QtyEntered);
+	public void setProcessed (boolean Processed);
 
-	/** Get Quantity.
-	  * The Quantity Entered is based on the selected UoM
+	/** Get Processed.
+	  * The document has been processed
 	  */
-	public BigDecimal getQtyEntered();
+	public boolean isProcessed();
+
+    /** Column name ProcessedOn */
+    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+
+	/** Set Processed On.
+	  * The date+time (expressed in decimal format) when the document has been processed
+	  */
+	public void setProcessedOn (BigDecimal ProcessedOn);
+
+	/** Get Processed On.
+	  * The date+time (expressed in decimal format) when the document has been processed
+	  */
+	public BigDecimal getProcessedOn();
+
+    /** Column name Processing */
+    public static final String COLUMNNAME_Processing = "Processing";
+
+	/** Set Process Now	  */
+	public void setProcessing (boolean Processing);
+
+	/** Get Process Now	  */
+	public boolean isProcessing();
 
     /** Column name SAP_WorkCenter_ID */
     public static final String COLUMNNAME_SAP_WorkCenter_ID = "SAP_WorkCenter_ID";
@@ -248,24 +282,6 @@ public interface I_MES_ProdOutput
 
 	/** Get Sales Order Number	  */
 	public String getSalesOrderNumber();
-
-    /** Column name SizeCustomer */
-    public static final String COLUMNNAME_SizeCustomer = "SizeCustomer";
-
-	/** Set Size Customer	  */
-	public void setSizeCustomer (String SizeCustomer);
-
-	/** Get Size Customer	  */
-	public String getSizeCustomer();
-
-    /** Column name SizeFactory */
-    public static final String COLUMNNAME_SizeFactory = "SizeFactory";
-
-	/** Set Size Factory	  */
-	public void setSizeFactory (String SizeFactory);
-
-	/** Get Size Factory	  */
-	public String getSizeFactory();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
