@@ -1,15 +1,18 @@
 package id.co.bintangindokarya.mes.model;
 
+
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.process.DocAction;
+import org.compiere.process.DocumentEngine;
 
 public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 
-	private static final long serialVersionUID = 3241426180671628718L;
+	private static final long serialVersionUID = 4095121967089947475L;
+	private String m_processMsg = null;
 
 	public MMES_ProdOutput(Properties ctx, int MES_ProdOutput_ID, String trxName) {
 		super(ctx, MES_ProdOutput_ID, trxName);
@@ -33,12 +36,45 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 
 	public MMES_ProdOutput(Properties ctx, String MES_ProdOutput_UU, String trxName, String[] virtualColumns) {
 		super(ctx, MES_ProdOutput_UU, trxName, virtualColumns);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public boolean processIt (String processAction)
+	{
+		m_processMsg = null;
+		DocumentEngine engine = new DocumentEngine (this, getDocStatus());
+		return engine.processIt (processAction, getDocAction());
+	}
+		
+	@Override
+	public String prepareIt() {
+	    if (!DOCSTATUS_Drafted.equals(getDocStatus()))
+	        return getDocStatus();
+	    return DocAction.STATUS_InProgress;
 	}
 
 	@Override
-	public boolean processIt(String action) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public String completeIt() {
+	    // Set document status
+	    setDocStatus(DOCSTATUS_Completed);
+	    setDocAction(DOCACTION_Close);
+	    // Mark as processed
+	    setProcessed(true);
+	    // Save changes
+	    saveEx();
+	    return DocAction.STATUS_Completed;
+	}
+
+	@Override
+	public boolean voidIt() {
+	    if (DOCSTATUS_Completed.equals(getDocStatus())) {
+	        setDocStatus(DOCSTATUS_Voided);
+	        setProcessed(true);
+	        saveEx();
+	        return true;
+	    }
+	    return false;
 	}
 
 	@Override
@@ -54,12 +90,6 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 	}
 
 	@Override
-	public String prepareIt() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean approveIt() {
 		// TODO Auto-generated method stub
 		return false;
@@ -67,18 +97,6 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 
 	@Override
 	public boolean rejectIt() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String completeIt() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean voidIt() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -148,7 +166,7 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	
 
 }
