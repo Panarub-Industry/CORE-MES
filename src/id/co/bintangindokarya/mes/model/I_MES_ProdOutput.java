@@ -64,24 +64,6 @@ public interface I_MES_ProdOutput
 	  */
 	public int getAD_Org_ID();
 
-    /** Column name Article */
-    public static final String COLUMNNAME_Article = "Article";
-
-	/** Set Article	  */
-	public void setArticle (String Article);
-
-	/** Get Article	  */
-	public String getArticle();
-
-    /** Column name Barcode */
-    public static final String COLUMNNAME_Barcode = "Barcode";
-
-	/** Set Barcode	  */
-	public void setBarcode (String Barcode);
-
-	/** Get Barcode	  */
-	public String getBarcode();
-
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
 
@@ -98,6 +80,45 @@ public interface I_MES_ProdOutput
 	  */
 	public int getCreatedBy();
 
+    /** Column name DocAction */
+    public static final String COLUMNNAME_DocAction = "DocAction";
+
+	/** Set Document Action.
+	  * The targeted status of the document
+	  */
+	public void setDocAction (String DocAction);
+
+	/** Get Document Action.
+	  * The targeted status of the document
+	  */
+	public String getDocAction();
+
+    /** Column name DocStatus */
+    public static final String COLUMNNAME_DocStatus = "DocStatus";
+
+	/** Set Document Status.
+	  * The current status of the document
+	  */
+	public void setDocStatus (String DocStatus);
+
+	/** Get Document Status.
+	  * The current status of the document
+	  */
+	public String getDocStatus();
+
+    /** Column name DocumentNo */
+    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+
+	/** Set Document No.
+	  * Document sequence number of the document
+	  */
+	public void setDocumentNo (String DocumentNo);
+
+	/** Get Document No.
+	  * Document sequence number of the document
+	  */
+	public String getDocumentNo();
+
     /** Column name IsActive */
     public static final String COLUMNNAME_IsActive = "IsActive";
 
@@ -110,24 +131,6 @@ public interface I_MES_ProdOutput
 	  * The record is active in the system
 	  */
 	public boolean isActive();
-
-    /** Column name KanbanNumber */
-    public static final String COLUMNNAME_KanbanNumber = "KanbanNumber";
-
-	/** Set Kanban Number	  */
-	public void setKanbanNumber (String KanbanNumber);
-
-	/** Get Kanban Number	  */
-	public String getKanbanNumber();
-
-    /** Column name LineAggregator */
-    public static final String COLUMNNAME_LineAggregator = "LineAggregator";
-
-	/** Set Line Aggregator	  */
-	public void setLineAggregator (String LineAggregator);
-
-	/** Get Line Aggregator	  */
-	public String getLineAggregator();
 
     /** Column name MES_ProdOutput_ID */
     public static final String COLUMNNAME_MES_ProdOutput_ID = "MES_ProdOutput_ID";
@@ -156,80 +159,40 @@ public interface I_MES_ProdOutput
 	/** Get MES_Trans_ID	  */
 	public String getMES_Trans_ID();
 
-    /** Column name MasterProductionOrder */
-    public static final String COLUMNNAME_MasterProductionOrder = "MasterProductionOrder";
+    /** Column name Processed */
+    public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Set Master Production Order	  */
-	public void setMasterProductionOrder (String MasterProductionOrder);
-
-	/** Get Master Production Order	  */
-	public String getMasterProductionOrder();
-
-    /** Column name MovementType */
-    public static final String COLUMNNAME_MovementType = "MovementType";
-
-	/** Set Movement Type.
-	  * Method of moving the inventory
+	/** Set Processed.
+	  * The document has been processed
 	  */
-	public void setMovementType (String MovementType);
+	public void setProcessed (boolean Processed);
 
-	/** Get Movement Type.
-	  * Method of moving the inventory
+	/** Get Processed.
+	  * The document has been processed
 	  */
-	public String getMovementType();
+	public boolean isProcessed();
 
-    /** Column name OrderNumber */
-    public static final String COLUMNNAME_OrderNumber = "OrderNumber";
+    /** Column name ProcessedOn */
+    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
 
-	/** Set Order Number	  */
-	public void setOrderNumber (String OrderNumber);
-
-	/** Get Order Number	  */
-	public String getOrderNumber();
-
-    /** Column name POReference */
-    public static final String COLUMNNAME_POReference = "POReference";
-
-	/** Set Order Reference.
-	  * Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
+	/** Set Processed On.
+	  * The date+time (expressed in decimal format) when the document has been processed
 	  */
-	public void setPOReference (String POReference);
+	public void setProcessedOn (BigDecimal ProcessedOn);
 
-	/** Get Order Reference.
-	  * Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
+	/** Get Processed On.
+	  * The date+time (expressed in decimal format) when the document has been processed
 	  */
-	public String getPOReference();
+	public BigDecimal getProcessedOn();
 
-    /** Column name PostingRemark */
-    public static final String COLUMNNAME_PostingRemark = "PostingRemark";
+    /** Column name Processing */
+    public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Set Posting Remark	  */
-	public void setPostingRemark (String PostingRemark);
+	/** Set Process Now	  */
+	public void setProcessing (boolean Processing);
 
-	/** Get Posting Remark	  */
-	public String getPostingRemark();
-
-    /** Column name PostingStatus */
-    public static final String COLUMNNAME_PostingStatus = "PostingStatus";
-
-	/** Set Posting Status	  */
-	public void setPostingStatus (boolean PostingStatus);
-
-	/** Get Posting Status	  */
-	public boolean isPostingStatus();
-
-    /** Column name QtyEntered */
-    public static final String COLUMNNAME_QtyEntered = "QtyEntered";
-
-	/** Set Quantity.
-	  * The Quantity Entered is based on the selected UoM
-	  */
-	public void setQtyEntered (BigDecimal QtyEntered);
-
-	/** Get Quantity.
-	  * The Quantity Entered is based on the selected UoM
-	  */
-	public BigDecimal getQtyEntered();
+	/** Get Process Now	  */
+	public boolean isProcessing();
 
     /** Column name SAP_WorkCenter_ID */
     public static final String COLUMNNAME_SAP_WorkCenter_ID = "SAP_WorkCenter_ID";
@@ -239,33 +202,6 @@ public interface I_MES_ProdOutput
 
 	/** Get SAP_WorkCenter	  */
 	public int getSAP_WorkCenter_ID();
-
-    /** Column name SalesOrderNumber */
-    public static final String COLUMNNAME_SalesOrderNumber = "SalesOrderNumber";
-
-	/** Set Sales Order Number	  */
-	public void setSalesOrderNumber (String SalesOrderNumber);
-
-	/** Get Sales Order Number	  */
-	public String getSalesOrderNumber();
-
-    /** Column name SizeCustomer */
-    public static final String COLUMNNAME_SizeCustomer = "SizeCustomer";
-
-	/** Set Size Customer	  */
-	public void setSizeCustomer (String SizeCustomer);
-
-	/** Get Size Customer	  */
-	public String getSizeCustomer();
-
-    /** Column name SizeFactory */
-    public static final String COLUMNNAME_SizeFactory = "SizeFactory";
-
-	/** Set Size Factory	  */
-	public void setSizeFactory (String SizeFactory);
-
-	/** Get Size Factory	  */
-	public String getSizeFactory();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

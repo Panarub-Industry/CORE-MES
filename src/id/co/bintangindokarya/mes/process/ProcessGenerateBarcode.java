@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.sql.SQLException;
 
 import org.compiere.model.MProcessPara;
+import org.compiere.model.MSysConfig;
 import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.AdempiereSystemError;
@@ -142,6 +143,8 @@ public class ProcessGenerateBarcode extends SvrProcess
 			DB.close(rs, pstmt);
 			rs = null; pstmt = null;
 		}
+		
+		
 		
 		
 	}	//	doIt

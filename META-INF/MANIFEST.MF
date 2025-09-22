@@ -1,24 +1,25 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: assembling
+Bundle-Name: Core-mes
 Bundle-SymbolicName: core-mes
 Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: id.co.bintangindokarya.mes.Activator
 Export-Package: id.co.bintangindokarya.mes
-Service-Component: OSGI-INF/*.xml
 Require-Bundle: org.adempiere.plugin.utils;bundle-version="12.0.0",
  org.adempiere.base;bundle-version="12.0.0",
  org.adempiere.ui;bundle-version="12.0.0",
  org.adempiere.ui.zk;bundle-version="12.0.0",
  zcommon;bundle-version="10.0.1",
  zk;bundle-version="10.0.1",
- zul;bundle-version="10.0.1"
+ zul;bundle-version="10.0.1",
+ core-erp;bundle-version="1.0.0"
 Import-Package: id.co.bintangindokarya.erp.model,
  org.apache.commons.collections.keyvalue;version="3.2.2",
  org.apache.xerces.jaxp;version="2.12.1",
  org.osgi.framework;version="1.10.0",
  org.osgi.service.component;version="1.5.1",
  org.osgi.service.event;version="1.4.1"
-Automatic-Module-Name: assembling
+Automatic-Module-Name: core.mes
+Service-Component: OSGI-INF/*.xml
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: id.co.bintangindokarya.mes.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17

@@ -31,7 +31,7 @@ public class X_MES_BarcodeType extends PO implements I_MES_BarcodeType, I_Persis
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250827L;
+	private static final long serialVersionUID = 20250919L;
 
     /** Standard Constructor */
     public X_MES_BarcodeType (Properties ctx, int MES_BarcodeType_ID, String trxName)

@@ -33,7 +33,7 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250827L;
+	private static final long serialVersionUID = 20250919L;
 
     /** Standard Constructor */
     public X_MES_ProdOutput (Properties ctx, int MES_ProdOutput_ID, String trxName)
@@ -41,18 +41,17 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_ID, trxName);
       /** if (MES_ProdOutput_ID == 0)
         {
-			setArticle (null);
-			setBarcode (null);
+			setDocAction (null);
+// CO
+			setDocStatus (null);
+// DR
+			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
-			setPostingStatus (false);
+			setProcessed (false);
 // N
-			setQtyEntered (Env.ZERO);
+			setProcessing (false);
+// N
 			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
-			setSizeCustomer (null);
-			setSizeFactory (null);
         } */
     }
 
@@ -62,18 +61,17 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_ID, trxName, virtualColumns);
       /** if (MES_ProdOutput_ID == 0)
         {
-			setArticle (null);
-			setBarcode (null);
+			setDocAction (null);
+// CO
+			setDocStatus (null);
+// DR
+			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
-			setPostingStatus (false);
+			setProcessed (false);
 // N
-			setQtyEntered (Env.ZERO);
+			setProcessing (false);
+// N
 			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
-			setSizeCustomer (null);
-			setSizeFactory (null);
         } */
     }
 
@@ -83,18 +81,17 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_UU, trxName);
       /** if (MES_ProdOutput_UU == null)
         {
-			setArticle (null);
-			setBarcode (null);
+			setDocAction (null);
+// CO
+			setDocStatus (null);
+// DR
+			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
-			setPostingStatus (false);
+			setProcessed (false);
 // N
-			setQtyEntered (Env.ZERO);
+			setProcessing (false);
+// N
 			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
-			setSizeCustomer (null);
-			setSizeFactory (null);
         } */
     }
 
@@ -104,18 +101,17 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_UU, trxName, virtualColumns);
       /** if (MES_ProdOutput_UU == null)
         {
-			setArticle (null);
-			setBarcode (null);
+			setDocAction (null);
+// CO
+			setDocStatus (null);
+// DR
+			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
-			setPostingStatus (false);
+			setProcessed (false);
 // N
-			setQtyEntered (Env.ZERO);
+			setProcessing (false);
+// N
 			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
-			setSizeCustomer (null);
-			setSizeFactory (null);
         } */
     }
 
@@ -147,64 +143,110 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       return sb.toString();
     }
 
-	/** Set Article.
-		@param Article Article
+	/** DocAction AD_Reference_ID=135 */
+	public static final int DOCACTION_AD_Reference_ID=135;
+	/** &lt;None&gt; = -- */
+	public static final String DOCACTION_None = "--";
+	/** Approve = AP */
+	public static final String DOCACTION_Approve = "AP";
+	/** Close = CL */
+	public static final String DOCACTION_Close = "CL";
+	/** Complete = CO */
+	public static final String DOCACTION_Complete = "CO";
+	/** Invalidate = IN */
+	public static final String DOCACTION_Invalidate = "IN";
+	/** Post = PO */
+	public static final String DOCACTION_Post = "PO";
+	/** Prepare = PR */
+	public static final String DOCACTION_Prepare = "PR";
+	/** Reverse - Accrual = RA */
+	public static final String DOCACTION_Reverse_Accrual = "RA";
+	/** Reverse - Correct = RC */
+	public static final String DOCACTION_Reverse_Correct = "RC";
+	/** Re-activate = RE */
+	public static final String DOCACTION_Re_Activate = "RE";
+	/** Reject = RJ */
+	public static final String DOCACTION_Reject = "RJ";
+	/** Void = VO */
+	public static final String DOCACTION_Void = "VO";
+	/** Wait Complete = WC */
+	public static final String DOCACTION_WaitComplete = "WC";
+	/** Unlock = XL */
+	public static final String DOCACTION_Unlock = "XL";
+	/** Set Document Action.
+		@param DocAction The targeted status of the document
 	*/
-	public void setArticle (String Article)
+	public void setDocAction (String DocAction)
 	{
-		set_Value (COLUMNNAME_Article, Article);
+
+		set_Value (COLUMNNAME_DocAction, DocAction);
 	}
 
-	/** Get Article.
-		@return Article	  */
-	public String getArticle()
+	/** Get Document Action.
+		@return The targeted status of the document
+	  */
+	public String getDocAction()
 	{
-		return (String)get_Value(COLUMNNAME_Article);
+		return (String)get_Value(COLUMNNAME_DocAction);
 	}
 
-	/** Set Barcode.
-		@param Barcode Barcode
+	/** DocStatus AD_Reference_ID=131 */
+	public static final int DOCSTATUS_AD_Reference_ID=131;
+	/** Unknown = ?? */
+	public static final String DOCSTATUS_Unknown = "??";
+	/** Approved = AP */
+	public static final String DOCSTATUS_Approved = "AP";
+	/** Closed = CL */
+	public static final String DOCSTATUS_Closed = "CL";
+	/** Completed = CO */
+	public static final String DOCSTATUS_Completed = "CO";
+	/** Drafted = DR */
+	public static final String DOCSTATUS_Drafted = "DR";
+	/** Invalid = IN */
+	public static final String DOCSTATUS_Invalid = "IN";
+	/** In Progress = IP */
+	public static final String DOCSTATUS_InProgress = "IP";
+	/** Not Approved = NA */
+	public static final String DOCSTATUS_NotApproved = "NA";
+	/** Reversed = RE */
+	public static final String DOCSTATUS_Reversed = "RE";
+	/** Voided = VO */
+	public static final String DOCSTATUS_Voided = "VO";
+	/** Waiting Confirmation = WC */
+	public static final String DOCSTATUS_WaitingConfirmation = "WC";
+	/** Waiting Payment = WP */
+	public static final String DOCSTATUS_WaitingPayment = "WP";
+	/** Set Document Status.
+		@param DocStatus The current status of the document
 	*/
-	public void setBarcode (String Barcode)
+	public void setDocStatus (String DocStatus)
 	{
-		set_ValueNoCheck (COLUMNNAME_Barcode, Barcode);
+
+		set_Value (COLUMNNAME_DocStatus, DocStatus);
 	}
 
-	/** Get Barcode.
-		@return Barcode	  */
-	public String getBarcode()
+	/** Get Document Status.
+		@return The current status of the document
+	  */
+	public String getDocStatus()
 	{
-		return (String)get_Value(COLUMNNAME_Barcode);
+		return (String)get_Value(COLUMNNAME_DocStatus);
 	}
 
-	/** Set Kanban Number.
-		@param KanbanNumber Kanban Number
+	/** Set Document No.
+		@param DocumentNo Document sequence number of the document
 	*/
-	public void setKanbanNumber (String KanbanNumber)
+	public void setDocumentNo (String DocumentNo)
 	{
-		set_Value (COLUMNNAME_KanbanNumber, KanbanNumber);
+		set_Value (COLUMNNAME_DocumentNo, DocumentNo);
 	}
 
-	/** Get Kanban Number.
-		@return Kanban Number	  */
-	public String getKanbanNumber()
+	/** Get Document No.
+		@return Document sequence number of the document
+	  */
+	public String getDocumentNo()
 	{
-		return (String)get_Value(COLUMNNAME_KanbanNumber);
-	}
-
-	/** Set Line Aggregator.
-		@param LineAggregator Line Aggregator
-	*/
-	public void setLineAggregator (String LineAggregator)
-	{
-		set_Value (COLUMNNAME_LineAggregator, LineAggregator);
-	}
-
-	/** Get Line Aggregator.
-		@return Line Aggregator	  */
-	public String getLineAggregator()
-	{
-		return (String)get_Value(COLUMNNAME_LineAggregator);
+		return (String)get_Value(COLUMNNAME_DocumentNo);
 	}
 
 	/** Set MES_ProdOutput.
@@ -267,96 +309,20 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 		return (String)get_Value(COLUMNNAME_MES_Trans_ID);
 	}
 
-	/** Set Master Production Order.
-		@param MasterProductionOrder Master Production Order
+	/** Set Processed.
+		@param Processed The document has been processed
 	*/
-	public void setMasterProductionOrder (String MasterProductionOrder)
+	public void setProcessed (boolean Processed)
 	{
-		set_Value (COLUMNNAME_MasterProductionOrder, MasterProductionOrder);
+		set_Value (COLUMNNAME_Processed, Boolean.valueOf(Processed));
 	}
 
-	/** Get Master Production Order.
-		@return Master Production Order	  */
-	public String getMasterProductionOrder()
-	{
-		return (String)get_Value(COLUMNNAME_MasterProductionOrder);
-	}
-
-	/** Set Movement Type.
-		@param MovementType Method of moving the inventory
-	*/
-	public void setMovementType (String MovementType)
-	{
-		set_Value (COLUMNNAME_MovementType, MovementType);
-	}
-
-	/** Get Movement Type.
-		@return Method of moving the inventory
+	/** Get Processed.
+		@return The document has been processed
 	  */
-	public String getMovementType()
+	public boolean isProcessed()
 	{
-		return (String)get_Value(COLUMNNAME_MovementType);
-	}
-
-	/** Set Order Number.
-		@param OrderNumber Order Number
-	*/
-	public void setOrderNumber (String OrderNumber)
-	{
-		set_ValueNoCheck (COLUMNNAME_OrderNumber, OrderNumber);
-	}
-
-	/** Get Order Number.
-		@return Order Number	  */
-	public String getOrderNumber()
-	{
-		return (String)get_Value(COLUMNNAME_OrderNumber);
-	}
-
-	/** Set Order Reference.
-		@param POReference Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	*/
-	public void setPOReference (String POReference)
-	{
-		set_ValueNoCheck (COLUMNNAME_POReference, POReference);
-	}
-
-	/** Get Order Reference.
-		@return Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	  */
-	public String getPOReference()
-	{
-		return (String)get_Value(COLUMNNAME_POReference);
-	}
-
-	/** Set Posting Remark.
-		@param PostingRemark Posting Remark
-	*/
-	public void setPostingRemark (String PostingRemark)
-	{
-		set_Value (COLUMNNAME_PostingRemark, PostingRemark);
-	}
-
-	/** Get Posting Remark.
-		@return Posting Remark	  */
-	public String getPostingRemark()
-	{
-		return (String)get_Value(COLUMNNAME_PostingRemark);
-	}
-
-	/** Set Posting Status.
-		@param PostingStatus Posting Status
-	*/
-	public void setPostingStatus (boolean PostingStatus)
-	{
-		set_Value (COLUMNNAME_PostingStatus, Boolean.valueOf(PostingStatus));
-	}
-
-	/** Get Posting Status.
-		@return Posting Status	  */
-	public boolean isPostingStatus()
-	{
-		Object oo = get_Value(COLUMNNAME_PostingStatus);
+		Object oo = get_Value(COLUMNNAME_Processed);
 		if (oo != null)
 		{
 			 if (oo instanceof Boolean)
@@ -366,23 +332,45 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 		return false;
 	}
 
-	/** Set Quantity.
-		@param QtyEntered The Quantity Entered is based on the selected UoM
+	/** Set Processed On.
+		@param ProcessedOn The date+time (expressed in decimal format) when the document has been processed
 	*/
-	public void setQtyEntered (BigDecimal QtyEntered)
+	public void setProcessedOn (BigDecimal ProcessedOn)
 	{
-		set_ValueNoCheck (COLUMNNAME_QtyEntered, QtyEntered);
+		set_Value (COLUMNNAME_ProcessedOn, ProcessedOn);
 	}
 
-	/** Get Quantity.
-		@return The Quantity Entered is based on the selected UoM
+	/** Get Processed On.
+		@return The date+time (expressed in decimal format) when the document has been processed
 	  */
-	public BigDecimal getQtyEntered()
+	public BigDecimal getProcessedOn()
 	{
-		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_QtyEntered);
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_ProcessedOn);
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
+	}
+
+	/** Set Process Now.
+		@param Processing Process Now
+	*/
+	public void setProcessing (boolean Processing)
+	{
+		set_Value (COLUMNNAME_Processing, Boolean.valueOf(Processing));
+	}
+
+	/** Get Process Now.
+		@return Process Now	  */
+	public boolean isProcessing()
+	{
+		Object oo = get_Value(COLUMNNAME_Processing);
+		if (oo != null)
+		{
+			 if (oo instanceof Boolean)
+				 return ((Boolean)oo).booleanValue();
+			return "Y".equals(oo);
+		}
+		return false;
 	}
 
 	/** Set SAP_WorkCenter.
@@ -404,50 +392,5 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 		if (ii == null)
 			 return 0;
 		return ii.intValue();
-	}
-
-	/** Set Sales Order Number.
-		@param SalesOrderNumber Sales Order Number
-	*/
-	public void setSalesOrderNumber (String SalesOrderNumber)
-	{
-		set_Value (COLUMNNAME_SalesOrderNumber, SalesOrderNumber);
-	}
-
-	/** Get Sales Order Number.
-		@return Sales Order Number	  */
-	public String getSalesOrderNumber()
-	{
-		return (String)get_Value(COLUMNNAME_SalesOrderNumber);
-	}
-
-	/** Set Size Customer.
-		@param SizeCustomer Size Customer
-	*/
-	public void setSizeCustomer (String SizeCustomer)
-	{
-		set_Value (COLUMNNAME_SizeCustomer, SizeCustomer);
-	}
-
-	/** Get Size Customer.
-		@return Size Customer	  */
-	public String getSizeCustomer()
-	{
-		return (String)get_Value(COLUMNNAME_SizeCustomer);
-	}
-
-	/** Set Size Factory.
-		@param SizeFactory Size Factory
-	*/
-	public void setSizeFactory (String SizeFactory)
-	{
-		set_Value (COLUMNNAME_SizeFactory, SizeFactory);
-	}
-
-	/** Get Size Factory.
-		@return Size Factory	  */
-	public String getSizeFactory()
-	{
-		return (String)get_Value(COLUMNNAME_SizeFactory);
 	}
 }

@@ -33,7 +33,7 @@ public class X_MES_BarcodeDetail extends PO implements I_MES_BarcodeDetail, I_Pe
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250827L;
+	private static final long serialVersionUID = 20250919L;
 
     /** Standard Constructor */
     public X_MES_BarcodeDetail (Properties ctx, int MES_BarcodeDetail_ID, String trxName)
@@ -203,7 +203,7 @@ public class X_MES_BarcodeDetail extends PO implements I_MES_BarcodeDetail, I_Pe
 			.getPO(getMES_Barcode_ID(), get_TrxName());
 	}
 
-	/** Set Production Barcode.
+	/** Set ID.
 		@param MES_Barcode_ID Production barcode header
 	*/
 	public void setMES_Barcode_ID (int MES_Barcode_ID)
@@ -214,7 +214,7 @@ public class X_MES_BarcodeDetail extends PO implements I_MES_BarcodeDetail, I_Pe
 			set_ValueNoCheck (COLUMNNAME_MES_Barcode_ID, Integer.valueOf(MES_Barcode_ID));
 	}
 
-	/** Get Production Barcode.
+	/** Get ID.
 		@return Production barcode header
 	  */
 	public int getMES_Barcode_ID()
