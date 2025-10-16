@@ -151,12 +151,12 @@ public interface I_MES_Barcode
     /** Column name MES_Barcode_ID */
     public static final String COLUMNNAME_MES_Barcode_ID = "MES_Barcode_ID";
 
-	/** Set Production Barcode.
+	/** Set ID.
 	  * Production barcode header
 	  */
 	public void setMES_Barcode_ID (int MES_Barcode_ID);
 
-	/** Get Production Barcode.
+	/** Get ID.
 	  * Production barcode header
 	  */
 	public int getMES_Barcode_ID();
@@ -237,15 +237,6 @@ public interface I_MES_Barcode
 
 	/** Get Storage Location	  */
 	public int getSAP_Sloc_ID();
-
-    /** Column name TotalPack */
-    public static final String COLUMNNAME_TotalPack = "TotalPack";
-
-	/** Set Total Package	  */
-	public void setTotalPack (BigDecimal TotalPack);
-
-	/** Get Total Package	  */
-	public BigDecimal getTotalPack();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

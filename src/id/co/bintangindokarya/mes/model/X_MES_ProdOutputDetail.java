@@ -34,7 +34,7 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250911L;
+	private static final long serialVersionUID = 20250926L;
 
     /** Standard Constructor */
     public X_MES_ProdOutputDetail (Properties ctx, int MES_ProdOutputDetail_ID, String trxName)
@@ -42,13 +42,17 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
       super (ctx, MES_ProdOutputDetail_ID, trxName);
       /** if (MES_ProdOutputDetail_ID == 0)
         {
+			setArticle (null);
 			setBarcode (null);
 			setMES_ProdOutputDetail_ID (0);
-			setPostConfirmationNo (null);
-			setPostNo (null);
+			setMasterProductionOrder (null);
+			setOrderNumber (null);
+			setPOReference (null);
 			setPostStatus (false);
 // N
 			setQtyEntered (Env.ZERO);
+			setSAP_WorkCenter_ID (0);
+			setSalesOrderNumber (null);
 			setSizeCustomer (null);
 			setSizeFactory (null);
         } */
@@ -60,13 +64,17 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
       super (ctx, MES_ProdOutputDetail_ID, trxName, virtualColumns);
       /** if (MES_ProdOutputDetail_ID == 0)
         {
+			setArticle (null);
 			setBarcode (null);
 			setMES_ProdOutputDetail_ID (0);
-			setPostConfirmationNo (null);
-			setPostNo (null);
+			setMasterProductionOrder (null);
+			setOrderNumber (null);
+			setPOReference (null);
 			setPostStatus (false);
 // N
 			setQtyEntered (Env.ZERO);
+			setSAP_WorkCenter_ID (0);
+			setSalesOrderNumber (null);
 			setSizeCustomer (null);
 			setSizeFactory (null);
         } */
@@ -78,13 +86,17 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
       super (ctx, MES_ProdOutputDetail_UU, trxName);
       /** if (MES_ProdOutputDetail_UU == null)
         {
+			setArticle (null);
 			setBarcode (null);
 			setMES_ProdOutputDetail_ID (0);
-			setPostConfirmationNo (null);
-			setPostNo (null);
+			setMasterProductionOrder (null);
+			setOrderNumber (null);
+			setPOReference (null);
 			setPostStatus (false);
 // N
 			setQtyEntered (Env.ZERO);
+			setSAP_WorkCenter_ID (0);
+			setSalesOrderNumber (null);
 			setSizeCustomer (null);
 			setSizeFactory (null);
         } */
@@ -96,13 +108,17 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
       super (ctx, MES_ProdOutputDetail_UU, trxName, virtualColumns);
       /** if (MES_ProdOutputDetail_UU == null)
         {
+			setArticle (null);
 			setBarcode (null);
 			setMES_ProdOutputDetail_ID (0);
-			setPostConfirmationNo (null);
-			setPostNo (null);
+			setMasterProductionOrder (null);
+			setOrderNumber (null);
+			setPOReference (null);
 			setPostStatus (false);
 // N
 			setQtyEntered (Env.ZERO);
+			setSAP_WorkCenter_ID (0);
+			setSalesOrderNumber (null);
 			setSizeCustomer (null);
 			setSizeFactory (null);
         } */
@@ -136,6 +152,21 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
       return sb.toString();
     }
 
+	/** Set Article.
+		@param Article Article
+	*/
+	public void setArticle (String Article)
+	{
+		set_Value (COLUMNNAME_Article, Article);
+	}
+
+	/** Get Article.
+		@return Article	  */
+	public String getArticle()
+	{
+		return (String)get_Value(COLUMNNAME_Article);
+	}
+
 	/** Set Barcode.
 		@param Barcode Barcode
 	*/
@@ -149,6 +180,36 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
 	public String getBarcode()
 	{
 		return (String)get_Value(COLUMNNAME_Barcode);
+	}
+
+	/** Set Kanban Number.
+		@param KanbanNumber Kanban Number
+	*/
+	public void setKanbanNumber (String KanbanNumber)
+	{
+		set_Value (COLUMNNAME_KanbanNumber, KanbanNumber);
+	}
+
+	/** Get Kanban Number.
+		@return Kanban Number	  */
+	public String getKanbanNumber()
+	{
+		return (String)get_Value(COLUMNNAME_KanbanNumber);
+	}
+
+	/** Set Line Aggregator.
+		@param LineAggregator Line Aggregator
+	*/
+	public void setLineAggregator (String LineAggregator)
+	{
+		set_Value (COLUMNNAME_LineAggregator, LineAggregator);
+	}
+
+	/** Get Line Aggregator.
+		@return Line Aggregator	  */
+	public String getLineAggregator()
+	{
+		return (String)get_Value(COLUMNNAME_LineAggregator);
 	}
 
 	/** Set Production Output Detail.
@@ -212,6 +273,99 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
 		if (ii == null)
 			 return 0;
 		return ii.intValue();
+	}
+
+	/** Set Master Production Order.
+		@param MasterProductionOrder Master Production Order
+	*/
+	public void setMasterProductionOrder (String MasterProductionOrder)
+	{
+		set_Value (COLUMNNAME_MasterProductionOrder, MasterProductionOrder);
+	}
+
+	/** Get Master Production Order.
+		@return Master Production Order	  */
+	public String getMasterProductionOrder()
+	{
+		return (String)get_Value(COLUMNNAME_MasterProductionOrder);
+	}
+
+	/** MovementType AD_Reference_ID=189 */
+	public static final int MOVEMENTTYPE_AD_Reference_ID=189;
+	/** GR goods receipt = 101 */
+	public static final String MOVEMENTTYPE_GRGoodsReceipt = "101";
+	/** GI for order = 261 */
+	public static final String MOVEMENTTYPE_GIForOrder = "261";
+	/** Customer Returns = C+ */
+	public static final String MOVEMENTTYPE_CustomerReturns = "C+";
+	/** Customer Shipment = C- */
+	public static final String MOVEMENTTYPE_CustomerShipment = "C-";
+	/** Inventory In = I+ */
+	public static final String MOVEMENTTYPE_InventoryIn = "I+";
+	/** Inventory Out = I- */
+	public static final String MOVEMENTTYPE_InventoryOut = "I-";
+	/** Movement To = M+ */
+	public static final String MOVEMENTTYPE_MovementTo = "M+";
+	/** Movement From = M- */
+	public static final String MOVEMENTTYPE_MovementFrom = "M-";
+	/** Production + = P+ */
+	public static final String MOVEMENTTYPE_ProductionPlus = "P+";
+	/** Production - = P- */
+	public static final String MOVEMENTTYPE_Production_ = "P-";
+	/** Vendor Receipts = V+ */
+	public static final String MOVEMENTTYPE_VendorReceipts = "V+";
+	/** Vendor Returns = V- */
+	public static final String MOVEMENTTYPE_VendorReturns = "V-";
+	/** Work Order + = W+ */
+	public static final String MOVEMENTTYPE_WorkOrderPlus = "W+";
+	/** Work Order - = W- */
+	public static final String MOVEMENTTYPE_WorkOrder_ = "W-";
+	/** Set Movement Type.
+		@param MovementType Method of moving the inventory
+	*/
+	public void setMovementType (String MovementType)
+	{
+
+		set_Value (COLUMNNAME_MovementType, MovementType);
+	}
+
+	/** Get Movement Type.
+		@return Method of moving the inventory
+	  */
+	public String getMovementType()
+	{
+		return (String)get_Value(COLUMNNAME_MovementType);
+	}
+
+	/** Set Order Number.
+		@param OrderNumber Order Number
+	*/
+	public void setOrderNumber (String OrderNumber)
+	{
+		set_Value (COLUMNNAME_OrderNumber, OrderNumber);
+	}
+
+	/** Get Order Number.
+		@return Order Number	  */
+	public String getOrderNumber()
+	{
+		return (String)get_Value(COLUMNNAME_OrderNumber);
+	}
+
+	/** Set Order Reference.
+		@param POReference Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
+	*/
+	public void setPOReference (String POReference)
+	{
+		set_Value (COLUMNNAME_POReference, POReference);
+	}
+
+	/** Get Order Reference.
+		@return Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
+	  */
+	public String getPOReference()
+	{
+		return (String)get_Value(COLUMNNAME_POReference);
 	}
 
 	/** Set PostConfirmationNo.
@@ -313,6 +467,42 @@ public class X_MES_ProdOutputDetail extends PO implements I_MES_ProdOutputDetail
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
+	}
+
+	/** Set SAP_WorkCenter.
+		@param SAP_WorkCenter_ID SAP_WorkCenter
+	*/
+	public void setSAP_WorkCenter_ID (int SAP_WorkCenter_ID)
+	{
+		if (SAP_WorkCenter_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_SAP_WorkCenter_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_SAP_WorkCenter_ID, Integer.valueOf(SAP_WorkCenter_ID));
+	}
+
+	/** Get SAP_WorkCenter.
+		@return SAP_WorkCenter	  */
+	public int getSAP_WorkCenter_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_SAP_WorkCenter_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
+	/** Set Sales Order Number.
+		@param SalesOrderNumber Sales Order Number
+	*/
+	public void setSalesOrderNumber (String SalesOrderNumber)
+	{
+		set_Value (COLUMNNAME_SalesOrderNumber, SalesOrderNumber);
+	}
+
+	/** Get Sales Order Number.
+		@return Sales Order Number	  */
+	public String getSalesOrderNumber()
+	{
+		return (String)get_Value(COLUMNNAME_SalesOrderNumber);
 	}
 
 	/** Set Size Customer.
