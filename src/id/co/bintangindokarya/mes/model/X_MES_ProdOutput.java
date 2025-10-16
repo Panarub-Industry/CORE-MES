@@ -33,7 +33,7 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250911L;
+	private static final long serialVersionUID = 20250926L;
 
     /** Standard Constructor */
     public X_MES_ProdOutput (Properties ctx, int MES_ProdOutput_ID, String trxName)
@@ -41,21 +41,16 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_ID, trxName);
       /** if (MES_ProdOutput_ID == 0)
         {
-			setArticle (null);
 			setDocAction (null);
 // CO
 			setDocStatus (null);
 // DR
 			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
 			setProcessed (false);
 // N
 			setProcessing (false);
 // N
-			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
         } */
     }
 
@@ -65,21 +60,16 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_ID, trxName, virtualColumns);
       /** if (MES_ProdOutput_ID == 0)
         {
-			setArticle (null);
 			setDocAction (null);
 // CO
 			setDocStatus (null);
 // DR
 			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
 			setProcessed (false);
 // N
 			setProcessing (false);
 // N
-			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
         } */
     }
 
@@ -89,21 +79,16 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_UU, trxName);
       /** if (MES_ProdOutput_UU == null)
         {
-			setArticle (null);
 			setDocAction (null);
 // CO
 			setDocStatus (null);
 // DR
 			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
 			setProcessed (false);
 // N
 			setProcessing (false);
 // N
-			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
         } */
     }
 
@@ -113,21 +98,16 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
       super (ctx, MES_ProdOutput_UU, trxName, virtualColumns);
       /** if (MES_ProdOutput_UU == null)
         {
-			setArticle (null);
 			setDocAction (null);
 // CO
 			setDocStatus (null);
 // DR
 			setDocumentNo (null);
 			setMES_ProdOutput_ID (0);
-			setMasterProductionOrder (null);
-			setOrderNumber (null);
 			setProcessed (false);
 // N
 			setProcessing (false);
 // N
-			setSAP_WorkCenter_ID (0);
-			setSalesOrderNumber (null);
         } */
     }
 
@@ -158,21 +138,6 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
         .append(get_ID()).append("]");
       return sb.toString();
     }
-
-	/** Set Article.
-		@param Article Article
-	*/
-	public void setArticle (String Article)
-	{
-		set_Value (COLUMNNAME_Article, Article);
-	}
-
-	/** Get Article.
-		@return Article	  */
-	public String getArticle()
-	{
-		return (String)get_Value(COLUMNNAME_Article);
-	}
 
 	/** DocAction AD_Reference_ID=135 */
 	public static final int DOCACTION_AD_Reference_ID=135;
@@ -280,36 +245,6 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 		return (String)get_Value(COLUMNNAME_DocumentNo);
 	}
 
-	/** Set Kanban Number.
-		@param KanbanNumber Kanban Number
-	*/
-	public void setKanbanNumber (String KanbanNumber)
-	{
-		set_Value (COLUMNNAME_KanbanNumber, KanbanNumber);
-	}
-
-	/** Get Kanban Number.
-		@return Kanban Number	  */
-	public String getKanbanNumber()
-	{
-		return (String)get_Value(COLUMNNAME_KanbanNumber);
-	}
-
-	/** Set Line Aggregator.
-		@param LineAggregator Line Aggregator
-	*/
-	public void setLineAggregator (String LineAggregator)
-	{
-		set_Value (COLUMNNAME_LineAggregator, LineAggregator);
-	}
-
-	/** Get Line Aggregator.
-		@return Line Aggregator	  */
-	public String getLineAggregator()
-	{
-		return (String)get_Value(COLUMNNAME_LineAggregator);
-	}
-
 	/** Set MES_ProdOutput.
 		@param MES_ProdOutput_ID MES_ProdOutput
 	*/
@@ -368,68 +303,6 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 	public String getMES_Trans_ID()
 	{
 		return (String)get_Value(COLUMNNAME_MES_Trans_ID);
-	}
-
-	/** Set Master Production Order.
-		@param MasterProductionOrder Master Production Order
-	*/
-	public void setMasterProductionOrder (String MasterProductionOrder)
-	{
-		set_Value (COLUMNNAME_MasterProductionOrder, MasterProductionOrder);
-	}
-
-	/** Get Master Production Order.
-		@return Master Production Order	  */
-	public String getMasterProductionOrder()
-	{
-		return (String)get_Value(COLUMNNAME_MasterProductionOrder);
-	}
-
-	/** Set Movement Type.
-		@param MovementType Method of moving the inventory
-	*/
-	public void setMovementType (String MovementType)
-	{
-		set_Value (COLUMNNAME_MovementType, MovementType);
-	}
-
-	/** Get Movement Type.
-		@return Method of moving the inventory
-	  */
-	public String getMovementType()
-	{
-		return (String)get_Value(COLUMNNAME_MovementType);
-	}
-
-	/** Set Order Number.
-		@param OrderNumber Order Number
-	*/
-	public void setOrderNumber (String OrderNumber)
-	{
-		set_ValueNoCheck (COLUMNNAME_OrderNumber, OrderNumber);
-	}
-
-	/** Get Order Number.
-		@return Order Number	  */
-	public String getOrderNumber()
-	{
-		return (String)get_Value(COLUMNNAME_OrderNumber);
-	}
-
-	/** Set Order Reference.
-		@param POReference Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	*/
-	public void setPOReference (String POReference)
-	{
-		set_ValueNoCheck (COLUMNNAME_POReference, POReference);
-	}
-
-	/** Get Order Reference.
-		@return Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	  */
-	public String getPOReference()
-	{
-		return (String)get_Value(COLUMNNAME_POReference);
 	}
 
 	/** Set Processed.
@@ -494,41 +367,5 @@ public class X_MES_ProdOutput extends PO implements I_MES_ProdOutput, I_Persiste
 			return "Y".equals(oo);
 		}
 		return false;
-	}
-
-	/** Set SAP_WorkCenter.
-		@param SAP_WorkCenter_ID SAP_WorkCenter
-	*/
-	public void setSAP_WorkCenter_ID (int SAP_WorkCenter_ID)
-	{
-		if (SAP_WorkCenter_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_SAP_WorkCenter_ID, null);
-		else
-			set_ValueNoCheck (COLUMNNAME_SAP_WorkCenter_ID, Integer.valueOf(SAP_WorkCenter_ID));
-	}
-
-	/** Get SAP_WorkCenter.
-		@return SAP_WorkCenter	  */
-	public int getSAP_WorkCenter_ID()
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_SAP_WorkCenter_ID);
-		if (ii == null)
-			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Sales Order Number.
-		@param SalesOrderNumber Sales Order Number
-	*/
-	public void setSalesOrderNumber (String SalesOrderNumber)
-	{
-		set_Value (COLUMNNAME_SalesOrderNumber, SalesOrderNumber);
-	}
-
-	/** Get Sales Order Number.
-		@return Sales Order Number	  */
-	public String getSalesOrderNumber()
-	{
-		return (String)get_Value(COLUMNNAME_SalesOrderNumber);
 	}
 }

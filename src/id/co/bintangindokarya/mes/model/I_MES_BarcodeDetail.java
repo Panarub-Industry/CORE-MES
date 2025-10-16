@@ -136,12 +136,12 @@ public interface I_MES_BarcodeDetail
     /** Column name MES_Barcode_ID */
     public static final String COLUMNNAME_MES_Barcode_ID = "MES_Barcode_ID";
 
-	/** Set Production Barcode.
+	/** Set ID.
 	  * Production barcode header
 	  */
 	public void setMES_Barcode_ID (int MES_Barcode_ID);
 
-	/** Get Production Barcode.
+	/** Get ID.
 	  * Production barcode header
 	  */
 	public int getMES_Barcode_ID();

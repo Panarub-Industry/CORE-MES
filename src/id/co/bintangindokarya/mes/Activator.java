@@ -27,7 +27,12 @@ package id.co.bintangindokarya.mes;
 
 import org.adempiere.base.Core;
 import org.adempiere.plugin.utils.Incremental2PackActivator;
+import org.adempiere.webui.Extensions;
+import org.adempiere.webui.factory.IMappedFormFactory;
 import org.osgi.framework.BundleContext;
+
+import id.co.bintangindokarya.mes.form.ProductionAssemblingForm;
+import id.co.bintangindokarya.mes.form.ProductionSewingForm;
 
 /**
  * 
@@ -42,6 +47,19 @@ public class Activator extends Incremental2PackActivator {
 		Core.getMappedProcessFactory().scan(context, "id.co.bintangindokarya.mes.process");
 		Core.getMappedColumnCalloutFactory().scan(context, "id.co.bintangindokarya.mes.callout");
 
+//		IMappedFormFactory mappedFormFactory = Extensions.getMappedFormFactory();
+//		mappedFormFactory.addMapping(ProductionOutputAssemblingForm.class.getName(), () -> new ProductionOutputAssemblingForm().getForm());
+//		mappedFormFactory.addMapping(WWFActivity.class.getName(), () -> new WWFActivity().getForm());
+		
+		IMappedFormFactory mappedFormFactory = Extensions.getMappedFormFactory();
+
+        // Hanya map form kamu yang benar-benar implement ADForm
+        mappedFormFactory.addMapping(ProductionAssemblingForm.class.getName(),
+            () -> new ProductionAssemblingForm().getForm());
+        
+        mappedFormFactory.addMapping(ProductionSewingForm.class.getName(),
+                () -> new ProductionSewingForm().getForm());
+        
 		super.start(context);
 	}
 }

@@ -64,15 +64,6 @@ public interface I_MES_ProdOutput
 	  */
 	public int getAD_Org_ID();
 
-    /** Column name Article */
-    public static final String COLUMNNAME_Article = "Article";
-
-	/** Set Article	  */
-	public void setArticle (String Article);
-
-	/** Get Article	  */
-	public String getArticle();
-
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
 
@@ -141,24 +132,6 @@ public interface I_MES_ProdOutput
 	  */
 	public boolean isActive();
 
-    /** Column name KanbanNumber */
-    public static final String COLUMNNAME_KanbanNumber = "KanbanNumber";
-
-	/** Set Kanban Number	  */
-	public void setKanbanNumber (String KanbanNumber);
-
-	/** Get Kanban Number	  */
-	public String getKanbanNumber();
-
-    /** Column name LineAggregator */
-    public static final String COLUMNNAME_LineAggregator = "LineAggregator";
-
-	/** Set Line Aggregator	  */
-	public void setLineAggregator (String LineAggregator);
-
-	/** Get Line Aggregator	  */
-	public String getLineAggregator();
-
     /** Column name MES_ProdOutput_ID */
     public static final String COLUMNNAME_MES_ProdOutput_ID = "MES_ProdOutput_ID";
 
@@ -185,50 +158,6 @@ public interface I_MES_ProdOutput
 
 	/** Get MES_Trans_ID	  */
 	public String getMES_Trans_ID();
-
-    /** Column name MasterProductionOrder */
-    public static final String COLUMNNAME_MasterProductionOrder = "MasterProductionOrder";
-
-	/** Set Master Production Order	  */
-	public void setMasterProductionOrder (String MasterProductionOrder);
-
-	/** Get Master Production Order	  */
-	public String getMasterProductionOrder();
-
-    /** Column name MovementType */
-    public static final String COLUMNNAME_MovementType = "MovementType";
-
-	/** Set Movement Type.
-	  * Method of moving the inventory
-	  */
-	public void setMovementType (String MovementType);
-
-	/** Get Movement Type.
-	  * Method of moving the inventory
-	  */
-	public String getMovementType();
-
-    /** Column name OrderNumber */
-    public static final String COLUMNNAME_OrderNumber = "OrderNumber";
-
-	/** Set Order Number	  */
-	public void setOrderNumber (String OrderNumber);
-
-	/** Get Order Number	  */
-	public String getOrderNumber();
-
-    /** Column name POReference */
-    public static final String COLUMNNAME_POReference = "POReference";
-
-	/** Set Order Reference.
-	  * Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	  */
-	public void setPOReference (String POReference);
-
-	/** Get Order Reference.
-	  * Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner
-	  */
-	public String getPOReference();
 
     /** Column name Processed */
     public static final String COLUMNNAME_Processed = "Processed";
@@ -264,24 +193,6 @@ public interface I_MES_ProdOutput
 
 	/** Get Process Now	  */
 	public boolean isProcessing();
-
-    /** Column name SAP_WorkCenter_ID */
-    public static final String COLUMNNAME_SAP_WorkCenter_ID = "SAP_WorkCenter_ID";
-
-	/** Set SAP_WorkCenter	  */
-	public void setSAP_WorkCenter_ID (int SAP_WorkCenter_ID);
-
-	/** Get SAP_WorkCenter	  */
-	public int getSAP_WorkCenter_ID();
-
-    /** Column name SalesOrderNumber */
-    public static final String COLUMNNAME_SalesOrderNumber = "SalesOrderNumber";
-
-	/** Set Sales Order Number	  */
-	public void setSalesOrderNumber (String SalesOrderNumber);
-
-	/** Get Sales Order Number	  */
-	public String getSalesOrderNumber();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

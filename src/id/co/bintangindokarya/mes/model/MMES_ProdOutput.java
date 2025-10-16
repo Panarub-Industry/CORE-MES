@@ -1,80 +1,116 @@
 package id.co.bintangindokarya.mes.model;
 
-
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.Query;
 import org.compiere.process.DocAction;
-import org.compiere.process.DocumentEngine;
+import org.compiere.util.Env;
+import org.compiere.util.Trx;
 
 public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 
-	private static final long serialVersionUID = 4095121967089947475L;
-	private String m_processMsg = null;
+	private static final long serialVersionUID = -8545516045803990055L;
 
 	public MMES_ProdOutput(Properties ctx, int MES_ProdOutput_ID, String trxName) {
 		super(ctx, MES_ProdOutput_ID, trxName);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MMES_ProdOutput(Properties ctx, int MES_ProdOutput_ID, String trxName, String[] virtualColumns) {
 		super(ctx, MES_ProdOutput_ID, trxName, virtualColumns);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MMES_ProdOutput(Properties ctx, ResultSet rs, String trxName) {
 		super(ctx, rs, trxName);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MMES_ProdOutput(Properties ctx, String MES_ProdOutput_UU, String trxName) {
 		super(ctx, MES_ProdOutput_UU, trxName);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MMES_ProdOutput(Properties ctx, String MES_ProdOutput_UU, String trxName, String[] virtualColumns) {
 		super(ctx, MES_ProdOutput_UU, trxName, virtualColumns);
-		// TODO Auto-generated constructor stub
 	}
+
+	public static MMES_ProdOutput createOrGetDraftForAssembly(Properties ctx) {
+        return createOrGetDraft(ctx, MMES_ProdOutput.MES_TRANS_ID_ScanAssembly);
+    }
 	
-	@Override
-	public boolean processIt (String processAction)
-	{
-		m_processMsg = null;
-		DocumentEngine engine = new DocumentEngine (this, getDocStatus());
-		return engine.processIt (processAction, getDocAction());
-	}
-		
-	@Override
-	public String prepareIt() {
-	    if (!DOCSTATUS_Drafted.equals(getDocStatus()))
-	        return getDocStatus();
-	    return DocAction.STATUS_InProgress;
-	}
-
-	@Override
-	public String completeIt() {
-	    // Set document status
-	    setDocStatus(DOCSTATUS_Completed);
-	    setDocAction(DOCACTION_Close);
-	    // Mark as processed
-	    setProcessed(true);
-	    // Save changes
-	    saveEx();
-	    return DocAction.STATUS_Completed;
+	public static MMES_ProdOutput getDraftForUser(Properties ctx, int userId, String transId) {
+	    String whereClause = "DocStatus=? AND AD_Client_ID=? AND AD_Org_ID=? AND CreatedBy=? AND MES_Trans_ID=?";
+	    return new Query(ctx, Table_Name, whereClause, null)
+	            .setParameters(
+	                DocAction.STATUS_Drafted,
+	                Env.getAD_Client_ID(ctx),
+	                Env.getAD_Org_ID(ctx),
+	                userId,
+	                transId
+	            )
+	            .setOrderBy("Created DESC")
+	            .first();
 	}
 
+	
+	/**
+     * Create new draft or get existing draft MES_ProdOutput for current user
+     * @param ctx Properties context
+     * @param transId Transaction ID (e.g., "MSA" for ScanAssembly)
+     * @return MMES_ProdOutput draft document No
+     */
+    public static MMES_ProdOutput createOrGetDraft(Properties ctx, String transId) {
+        int AD_User_ID = Env.getAD_User_ID(ctx);
+        
+        String trxName = Trx.createTrxName(transId);
+        Trx trx = Trx.get(trxName, true);
+        trx.setDisplayName(MMES_ProdOutput.class.getName() + "_createOrGetDraft");
+
+        try {
+            // Try to find existing draft for current user
+            MMES_ProdOutput existingDraft = getDraftForUser(ctx, AD_User_ID, transId);
+            if (existingDraft != null && transId.equals(existingDraft.getMES_Trans_ID())) {
+                trx.commit();
+                return existingDraft;
+            }
+
+            // Create new draft document
+            MMES_ProdOutput newDraft = new MMES_ProdOutput(ctx, 0, trxName);
+            newDraft.setMES_Trans_ID(transId);
+            newDraft.setDocStatus(DocAction.STATUS_Drafted);
+            newDraft.saveEx();
+
+            trx.commit();
+            
+            return newDraft;
+
+        } catch (Exception e) {
+            trx.rollback();
+            throw new IllegalStateException("Failed to create or get draft for transId: " + transId, e);
+        } finally {
+            trx.close();
+        }
+    }
+    
+
+
+    @Override
+    public void setDocStatus(String newStatus) {
+        // WAJIB panggil parent method untuk set database field
+    	
+        super.setDocStatus(newStatus);
+    }
+
+    @Override
+    public String getDocStatus() {
+        // WAJIB panggil parent method untuk get database field
+        return super.getDocStatus();
+    }
+
 	@Override
-	public boolean voidIt() {
-	    if (DOCSTATUS_Completed.equals(getDocStatus())) {
-	        setDocStatus(DOCSTATUS_Voided);
-	        setProcessed(true);
-	        saveEx();
-	        return true;
-	    }
-	    return false;
+	public boolean processIt(String action) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -90,6 +126,12 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 	}
 
 	@Override
+	public String prepareIt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public boolean approveIt() {
 		// TODO Auto-generated method stub
 		return false;
@@ -97,6 +139,18 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 
 	@Override
 	public boolean rejectIt() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String completeIt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean voidIt() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -167,6 +221,12 @@ public class MMES_ProdOutput extends X_MES_ProdOutput implements DocAction {
 		return null;
 	}
 
+	@Override
+	public String getDocAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 
 }

@@ -33,7 +33,7 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20250827L;
+	private static final long serialVersionUID = 20250926L;
 
     /** Standard Constructor */
     public X_MES_Barcode (Properties ctx, int MES_Barcode_ID, String trxName)
@@ -41,7 +41,6 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
       super (ctx, MES_Barcode_ID, trxName);
       /** if (MES_Barcode_ID == 0)
         {
-			setBatchDocumentNo (null);
 			setCustomerNo (null);
 			setMES_BarcodeType_ID (0);
 			setMES_Barcode_ID (0);
@@ -58,7 +57,6 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
       super (ctx, MES_Barcode_ID, trxName, virtualColumns);
       /** if (MES_Barcode_ID == 0)
         {
-			setBatchDocumentNo (null);
 			setCustomerNo (null);
 			setMES_BarcodeType_ID (0);
 			setMES_Barcode_ID (0);
@@ -75,7 +73,6 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
       super (ctx, MES_Barcode_UU, trxName);
       /** if (MES_Barcode_UU == null)
         {
-			setBatchDocumentNo (null);
 			setCustomerNo (null);
 			setMES_BarcodeType_ID (0);
 			setMES_Barcode_ID (0);
@@ -92,7 +89,6 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
       super (ctx, MES_Barcode_UU, trxName, virtualColumns);
       /** if (MES_Barcode_UU == null)
         {
-			setBatchDocumentNo (null);
 			setCustomerNo (null);
 			setMES_BarcodeType_ID (0);
 			setMES_Barcode_ID (0);
@@ -220,7 +216,7 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
 		return ii.intValue();
 	}
 
-	/** Set Production Barcode.
+	/** Set ID.
 		@param MES_Barcode_ID Production barcode header
 	*/
 	public void setMES_Barcode_ID (int MES_Barcode_ID)
@@ -231,7 +227,7 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
 			set_ValueNoCheck (COLUMNNAME_MES_Barcode_ID, Integer.valueOf(MES_Barcode_ID));
 	}
 
-	/** Get Production Barcode.
+	/** Get ID.
 		@return Production barcode header
 	  */
 	public int getMES_Barcode_ID()
@@ -378,23 +374,5 @@ public class X_MES_Barcode extends PO implements I_MES_Barcode, I_Persistent
 		if (ii == null)
 			 return 0;
 		return ii.intValue();
-	}
-
-	/** Set Total Package.
-		@param TotalPack Total Package
-	*/
-	public void setTotalPack (BigDecimal TotalPack)
-	{
-		set_Value (COLUMNNAME_TotalPack, TotalPack);
-	}
-
-	/** Get Total Package.
-		@return Total Package	  */
-	public BigDecimal getTotalPack()
-	{
-		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_TotalPack);
-		if (bd == null)
-			 return Env.ZERO;
-		return bd;
 	}
 }
